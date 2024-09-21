@@ -24,16 +24,18 @@ void curveFitting(vector<double>x,vector<double>y)
         double logY = log(y[i]);
         
 
-        sumX += logX;
-        sumX2 += logX * logX;
+        sumX += x[i];
+        sumX2 += (x[i]*x[i]);
         sumY += logY;
-        sumXY += logX * logY;
+        sumXY += (x[i] * logY);
     }
     
   int n = x.size();
     double c = ((n * sumXY) -( sumX * sumY)) / ((n * sumX2) - (sumX * sumX));
     double a = (sumY - c * sumX) /(double) n;
-    cout<<exp(a)<<" and "<<c<<endl; 
+    double b=exp(c);
+     a=exp(a);
+    cout<<(a*(pow(b,2))); 
 }
 void langrange_dada(vector<double>x,vector<double>y,double xp)
 {
@@ -155,6 +157,10 @@ void poly(vector<double>x,vector<double>y,int degree)
     for (int i = 0; i <= degree; i++) {
         cout << "Coeff a" << i << " = " << coefficients[i] << endl;
     }
+    // a0=3
+    // a1=2
+    // a2=4
+    // that means 3+2*x+4*x^2
     
    
 
@@ -171,16 +177,16 @@ int main()
         x.push_back(a);
         y.push_back(b);
     }
-   linearRegression(x,y);
-   curveFitting(x,y);
-   cout<<endl;
-   double xp;
-   cin>>xp;
-   langrange_dada(x,y,xp);
-   newton_kaka(x,y,xp);
-   int deg;
-   cin>>deg;
-   poly(x,y,deg);
+//    linearRegression(x,y);
+//    curveFitting(x,y);
+//    cout<<endl;
+//    double xp;
+//    cin>>xp;
+//    langrange_dada(x,y,xp);
+//    newton_kaka(x,y,xp);
+//    int deg;
+//    cin>>deg;
+//    poly(x,y,deg);
    
 
     
