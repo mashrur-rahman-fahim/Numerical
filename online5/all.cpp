@@ -165,6 +165,17 @@ void poly(vector<double>x,vector<double>y,int degree)
    
 
 }
+
+void mse(vector<double>y,vector<double>y_hat){
+    double mse=0;
+    for(int i=0;i<y.size();i++)
+    {
+        mse+=(y[i]-y_hat[i])*(y[i]-y_hat[i]);
+    }
+    mse=mse/y.size();
+    cout<<"Mean Squared Error: "<<mse<<endl;
+ 
+}
 int main()
 {
     int n;
